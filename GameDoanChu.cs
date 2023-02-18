@@ -107,7 +107,17 @@ namespace GameDoanChu
                         {
                             Console.WriteLine("Số tiền bạn đang có: " + token);
                             Console.WriteLine("Nhập số tiền cược: ");
-                            int pay = int.Parse(Console.ReadLine());
+                            int pay = 0;
+                            do
+                            {
+
+                                pay = int.Parse(Console.ReadLine());
+                                if (pay > token)
+                                {
+                                    Console.WriteLine("Không đủ tiền, nhập lại số khác!!!");
+                                }
+                            } while (pay > token);
+
                             token -= pay;
                             Console.WriteLine("Game bắt đầu!!");
                             computerNumber = number.Next(rangeNumber);
