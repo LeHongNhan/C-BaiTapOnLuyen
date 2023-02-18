@@ -24,6 +24,8 @@ namespace GameDoanChu
             int rangeNumber = 501;
             int rangeSetup = 501;
             int timeSetup = 7;
+            int token = 0;
+            token = 500;
             Random number = new Random();
             while(true)
             {
@@ -103,6 +105,10 @@ namespace GameDoanChu
                         }
                     case 2:
                         {
+                            Console.WriteLine("Số tiền bạn đang có: " + token);
+                            Console.WriteLine("Nhập số tiền cược: ");
+                            int pay = int.Parse(Console.ReadLine());
+                            token -= pay;
                             Console.WriteLine("Game bắt đầu!!");
                             computerNumber = number.Next(rangeNumber);
                             while(true)
@@ -118,6 +124,8 @@ namespace GameDoanChu
                                 if(playerNumber == computerNumber)
                                 {
                                     Console.WriteLine("Bạn đã thắng! Số của máy là " + computerNumber);
+                                    token += pay * 2;
+                                    Console.WriteLine("Money: +" + pay);
                                     Console.ReadLine();
                                     break;
                                 }
